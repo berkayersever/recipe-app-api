@@ -9,4 +9,4 @@ class CalculatorTests(TestCase):
 
     def test_subtract_numbers(self):
         """Test that values are subtracted from each other"""
-        self.assertEqual(subtract(5, 8), 3)
+        self.assertEqual(subtract(8, 5), 3)
