@@ -1,5 +1,5 @@
 from django.test import TestCase
-from app.calculator import add
+from app.calculator import add, subtract
 
 
 class CalculatorTests(TestCase):
