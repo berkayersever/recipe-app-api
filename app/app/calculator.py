@@ -4,4 +4,5 @@ def add(x, y):
 
 
 def subtract(x, y):
-    pass
+    """Subtracts y from x and returns the value"""
+    return x - y
