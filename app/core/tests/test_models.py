@@ -8,7 +8,10 @@ class ModelTests(TestCase):
         """Tests creating a new user with an email is successful"""
         email = 'test@live.se'
         password = 'Test1234Pass'
-        user = get_user_model().objects.create_user(email=email, password=password)
+        user = get_user_model().objects.create_user(
+            email=email,
+            password=password
+        )
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
 
@@ -27,6 +30,9 @@ class ModelTests(TestCase):
         """Tests creating a new superuser"""
         email = 'test@live.se'
         password = 'Test1234Pass'
-        user = get_user_model().objects.create_superuser(email=email, password=password)
+        user = get_user_model().objects.create_superuser(
+            email=email,
+            password=password
+        )
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
