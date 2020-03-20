@@ -14,6 +14,8 @@ class Command(BaseCommand):
             try:
                 db_conn = connections['default']
             except OperationalError:
-                self.stdout.write('Database is unavailable, waiting for one second...')
+                self.stdout.write(
+                    'Database is unavailable, waiting for one second...'
+                )
                 time.sleep(1)
         self.stdout.write(self.style.SUCCESS('Database is available!'))
