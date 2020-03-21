@@ -37,4 +37,4 @@ class AuthTokenSerializer(serializers.Serializer):
             msg = _('Unable to authenticate with provided credentials')
             raise serializers.ValidationError(msg, code='authentication')
         attrs['user'] = user
-        return user
+        return attrs
