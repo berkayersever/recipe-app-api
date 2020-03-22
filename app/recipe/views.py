@@ -5,9 +5,9 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
-class BaseRecipeAttributeViewSet(viewsets.GenericViewSet,
+class BaseRecipeAttributeViewSet(mixins.CreateModelMixin,
                                  mixins.ListModelMixin,
-                                 mixins.CreateModelMixin):
+                                 viewsets.GenericViewSet):
     """Base ViewSet for user owned recipe attributes"""
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
