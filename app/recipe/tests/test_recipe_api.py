@@ -1,12 +1,20 @@
+import os
+import tempfile
 from core.models import Ingredient, Recipe, Tag
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
+from PIL import Image
 from recipe.serializers import RecipeSerializer, RecipeDetailSerializer
 from rest_framework import status
 from rest_framework.test import APIClient
 
 RECIPES_URL = reverse('recipe:recipe-list')
+
+
+def image_upload_url(recipe_id):
+    """Returns URL for the recipe image upload"""
+    return reverse('recipe:recipe-upload-image', args=['recipe_id'])
 
 
 def detail_url(recipe_id):
