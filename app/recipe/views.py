@@ -17,7 +17,7 @@ class BaseRecipeAttributeViewSet(mixins.CreateModelMixin,
     def get_queryset(self):
         """Returns objects for the current authenticated user only"""
         assigned_only = bool(
-            int(self.request.query_params.get('assigned_only'))
+            int(self.request.query_params.get('assigned_only', 0))
         )
         queryset = self.queryset
         if assigned_only:
