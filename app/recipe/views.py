@@ -22,7 +22,9 @@ class BaseRecipeAttributeViewSet(mixins.CreateModelMixin,
         queryset = self.queryset
         if assigned_only:
             queryset = queryset.filter(recipe__isnull=False)
-        return queryset.filter(user=self.request.user).order_by('-name')
+        return queryset.filter(
+            user=self.request.user
+        ).order_by('-name').distinct()
 
     def perform_create(self, serializer):
         """Creates a new object"""
